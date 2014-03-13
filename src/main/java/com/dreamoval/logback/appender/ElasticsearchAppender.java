@@ -33,6 +33,19 @@ public class ElasticsearchAppender extends UnsynchronizedAppenderBase<ILoggingEv
         this.connectionSource = connectionSource;
     }
     
+    
+    @Override
+    public void start(){
+       connectionSource.initESClient();
+       super.start();
+    }
+    
+    @Override
+    public void stop(){
+        connectionSource.getClient().shutdownClient();
+        super.stop();
+    }
+    
     /**
      * Simple Callable class that insert the document into ElasticSearch
      */

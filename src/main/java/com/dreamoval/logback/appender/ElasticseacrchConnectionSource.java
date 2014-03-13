@@ -15,7 +15,7 @@ public class ElasticseacrchConnectionSource {
     private String elasticIndex = "logging-index";
     private String elasticType = "logging";
     private String elasticHost = "http://localhost:9200";
-
+    
     protected void initESClient(){
         try {
             // Configuration
